@@ -1,0 +1,13 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "asc --target release",
+    "build:debug": "asc --target debug",
+    "run": "w4 run build/cart.wasm",
+    "watch": "w4 watch"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.21.3"
+  }
+}
