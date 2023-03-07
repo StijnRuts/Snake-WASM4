@@ -11,11 +11,11 @@ const smiley = memory.data<u8>([
     0b11000011,
 ]);
 
-export function start (): void {
-    // empty
+export function start(): void {
+    w4.trace("Hello world!");
 }
 
-export function update (): void {
+export function update(): void {
     store<u16>(w4.DRAW_COLORS, 2);
     w4.text("Hello from\nAssemblyScript!", 10, 10);
 

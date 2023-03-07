@@ -1,1 +1,2 @@
-export { start, update } from "./tutorial/default_example";
+// export { start, update } from "./tutorial/default_example";
+export { start, update } from "./tutorial/drawing_basics";
