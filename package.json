@@ -5,7 +5,8 @@
     "build": "asc --target release",
     "build:debug": "asc --target debug",
     "run": "w4 run build/cart.wasm",
-    "watch": "w4 watch --no-open"
+    "watch": "w4 watch --no-open",
+    "bundle": "w4 bundle build/cart.wasm --title 'Snake' --html-template index.html.mustache --html snake.html"
   },
   "devDependencies": {
     "assemblyscript": "^0.21.3"
