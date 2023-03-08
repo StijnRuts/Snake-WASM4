@@ -5,7 +5,7 @@
     "build": "asc --target release",
     "build:debug": "asc --target debug",
     "run": "w4 run build/cart.wasm",
-    "watch": "w4 watch"
+    "watch": "w4 watch --no-open"
   },
   "devDependencies": {
     "assemblyscript": "^0.21.3"

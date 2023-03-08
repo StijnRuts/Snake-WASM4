@@ -1,0 +1,13 @@
+{{#sprites}}
+
+class {{name}}Class {
+    readonly data: usize = memory.data<u8>([{{bytes}}]);
+    readonly data_length: u32 = {{length}};
+    readonly width: u32 = {{width}};
+    readonly height: u32 = {{height}};
+    readonly flags: u32 = {{flags}}; // {{flagsHumanReadable}}
+}
+
+export const {{name}} = new {{name}}Class();
+
+{{/sprites}}
