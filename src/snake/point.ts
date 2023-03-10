@@ -10,6 +10,15 @@ export class Point {
         return this.x == other.x && this.y == other.y
     }
 
+    inList(list: Array<Point>): bool {
+        for (let i = 0, len = list.length; i < len; i++) {
+            if (this.equals(list[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     clone(): Point {
         return new Point(this.x, this.y);
     }
