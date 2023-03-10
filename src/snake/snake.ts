@@ -1,6 +1,7 @@
 import * as w4 from "../wasm4";
 import { Point } from "./point";
-import { Direction, right } from "./direction";
+import { Direction, directionFromPoints, right } from "./direction";
+import { drawHead, drawTail, drawBody } from "./graphics"; 
 
 export class Snake {
     body: Array<Point> = [
@@ -10,10 +11,11 @@ export class Snake {
     ];
 
     direction: Direction = right;
+    nextDirection: Direction = right;
 
     setDirection(direction: Direction | null): void {
         if (direction == null) { return; }
-        this.direction = direction;
+        this.nextDirection = direction;
     }
 
     getHead(): Point {
@@ -21,6 +23,10 @@ export class Snake {
     }
 
     update(): void {
+        if (!this.nextDirection.isOpposite(this.direction)) {
+            this.direction = this.nextDirection;
+        }
+
         let newHead = this.getHead().clone();
         newHead.move(this.direction);
         newHead.wrapBounds(0, 19, 0, 19);
@@ -32,12 +38,20 @@ export class Snake {
     }
 
     draw(): void {
-        // draw body
-        store<u16>(w4.DRAW_COLORS, 0x43);
-        this.body.forEach(part => w4.rect(part.x * 8, part.y * 8, 8, 8));
-        // draw head
-        store<u16>(w4.DRAW_COLORS, 0x04);
-        const head = this.getHead();
-        w4.rect(head.x * 8, head.y * 8, 8, 8);
+        for (let i = 0, len = this.body.length; i < len; i++) {
+            let direction = this.direction;
+            if (i > 0) {
+                direction = directionFromPoints(this.body[i], this.body[i-1]);
+            }
+
+            if (i == 0) {
+                drawHead(this.body[i], direction);
+            } else if (i == this.body.length - 1) {
+                drawTail(this.body[i], direction);
+            } else {
+                let nextDirection = directionFromPoints(this.body[i+1], this.body[i]);
+                drawBody(this.body[i], nextDirection, direction);
+            }
+        }
     }
 }

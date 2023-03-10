@@ -1,6 +1,7 @@
 import * as w4 from "../wasm4";
 import { Point } from "./point";
 import { rnd } from "./util";
+import { drawFruit } from "./graphics";
 
 export class Fruit {
     positions: Array<Point> = [];
@@ -22,7 +23,6 @@ export class Fruit {
     }
 
     draw(): void {
-        store<u16>(w4.DRAW_COLORS, 0x32);
-        this.positions.forEach(fruit => w4.oval(fruit.x * 8, fruit.y * 8, 8, 8));
+        this.positions.forEach(fruit => drawFruit(fruit));
     }
 }

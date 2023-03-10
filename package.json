@@ -4,6 +4,7 @@
   "scripts": {
     "build": "asc --target release",
     "build:debug": "asc --target debug",
+    "sprites": "w4 png2src --assemblyscript --template sprite.ts.mustache src/snake/snake.png > src/snake/snake_sprite.ts",
     "run": "w4 run build/cart.wasm",
     "watch": "w4 watch --no-open",
     "bundle": "w4 bundle build/cart.wasm --title 'Snake' --html-template index.html.mustache --html snake.html"
