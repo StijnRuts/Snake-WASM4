@@ -3,28 +3,14 @@ import * as w4 from "../wasm4";
 // https://opengameart.org/content/bitscript-a-low-res-handwriting-font
 
 class Font {
-    readonly data: usize;
-    readonly charset: string;
-    readonly charWidth: u32;
-    readonly charHeight: u32;
-    readonly width: u32;
-    readonly flags: u32;
-
     constructor(
-        data: usize,
-        charset: string,
-        charWidth: u32,
-        charHeight: u32,
-        width: u32,
-        flags: u32,
-    ) {
-        this.data = data;
-        this.charset = charset;
-        this.charWidth = charWidth;
-        this.charHeight = charHeight;
-        this.width = width;
-        this.flags = flags;
-    }
+        readonly data: usize,
+        readonly charset: string,
+        readonly charWidth: u32,
+        readonly charHeight: u32,
+        readonly width: u32,
+        readonly flags: u32,
+    ) {}
 }
 
 export const bitscript = new Font(
