@@ -3,10 +3,12 @@ import { Gamepad } from "../input/gamepad";
 import { Snake } from "../entities/snake";
 import { Timer } from "../util/timer";
 import { Fruit } from "../entities/fruit";
+import { Walls } from "../entities/walls";
 
 export class Game {
     snake: Snake = new Snake();
     fruit: Fruit = new Fruit(2);
+    walls: Walls = new Walls();
     timer: Timer = new Timer(15);
 
     constructor(
@@ -15,15 +17,16 @@ export class Game {
 
     update(): void {
         this.gamepad.update();
-        this.snake.setDirection(this.gamepad.getDirection());
+        this.snake.input(this.gamepad);
     
         if (this.timer.tick()) {
-            this.snake.update();
-            this.fruit.addFruit(this.snake.body);
+            this.snake.update(this);
+            this.fruit.update(this);
         }
     }
 
     draw(): void {
+        this.walls.draw();
         this.snake.draw();
         this.fruit.draw();
     }

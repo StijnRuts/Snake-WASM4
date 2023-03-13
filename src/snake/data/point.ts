@@ -6,11 +6,11 @@ export class Point {
         public y: i32
     ) {}
 
-    equals(other: Point): bool {
+    equals(other: Point): boolean {
         return this.x == other.x && this.y == other.y
     }
 
-    inList(list: Array<Point>): bool {
+    inList(list: Array<Point>): boolean {
         for (let i = 0, len = list.length; i < len; i++) {
             if (this.equals(list[i])) {
                 return true;
