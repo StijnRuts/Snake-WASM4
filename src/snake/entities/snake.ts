@@ -1,7 +1,7 @@
-import * as w4 from "../wasm4";
-import { Point } from "./point";
-import { Direction, directionFromPoints, right } from "./direction";
-import { drawHead, drawTail, drawBody } from "./graphics"; 
+import * as w4 from "../../wasm4";
+import { Point } from "../data/point";
+import { Direction, directionFromPoints, right } from "../data/direction";
+import { drawHead, drawTail, drawBody } from "../graphics/graphics"; 
 
 export class Snake {
     body: Array<Point> = [

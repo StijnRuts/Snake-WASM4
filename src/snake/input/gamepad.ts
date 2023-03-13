@@ -1,5 +1,5 @@
-import * as w4 from "../wasm4";
-import { Direction, down, left, right, up } from "./direction";
+import * as w4 from "../../wasm4";
+import { Direction, down, left, right, up } from "../data/direction";
 
 export class Gamepad {
     buttons: u8 = 0;

@@ -5,11 +5,12 @@ export class Timer {
         public trigger: usize,
     ) {}
 
-    update(f: () => void): void {
+    tick(): boolean {
         this.time ++;
         if (this.time >= this.trigger) {
-            f();
             this.time = 0;
+            return true;
         }
+        return false;
     }
 }

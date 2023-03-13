@@ -1,7 +1,7 @@
-import * as w4 from "../wasm4";
-import { Point } from "./point";
-import { rnd } from "./util";
-import { drawFruit } from "./graphics";
+import * as w4 from "../../wasm4";
+import { Point } from "../data/point";
+import { rnd } from "../util/util";
+import { drawFruit } from "../graphics/graphics";
 
 export class Fruit {
     positions: Array<Point> = [];

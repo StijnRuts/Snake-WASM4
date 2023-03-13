@@ -1,7 +1,7 @@
-import * as w4 from "../wasm4";
+import * as w4 from "../../wasm4";
 import { snake_sprite } from "./snake_sprite";
-import { Point } from "./point";
-import { Direction, up, down, left, right } from "./direction";
+import { Point } from "../data/point";
+import { Direction, up, down, left, right } from "../data/direction";
 
 function drawSprite(index: u8, point: Point): void {
     // color 4 is transparent

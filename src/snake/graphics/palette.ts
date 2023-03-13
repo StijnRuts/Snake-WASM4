@@ -1,4 +1,4 @@
-import * as w4 from "../wasm4";
+import * as w4 from "../../wasm4";
 
 class Palette {
     constructor(
