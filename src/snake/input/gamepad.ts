@@ -16,6 +16,14 @@ export class Gamepad {
         return !!(this.buttons & button);
     }
 
+    anyButtonPressed(): boolean {
+        return this.isDown(w4.BUTTON_1) || this.isDown(w4.BUTTON_2);
+    }
+
+    anyKeyPressed(): boolean {
+        return this.buttons > 0;
+    }
+
     getDirection(): Direction | null {
         if (this.isDown(w4.BUTTON_UP)) { return up; }
         if (this.isDown(w4.BUTTON_DOWN)) { return down; }

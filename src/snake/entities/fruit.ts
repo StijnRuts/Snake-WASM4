@@ -20,7 +20,7 @@ export class Fruit {
             if (game.snake.getHead().equals(this.positions[i])) {
                 this.positions.splice(i, 1); // remove fruit
                 game.snake.grow = true;
-                // @TODO: Add score
+                game.score.add(10);
             }
         }
     }

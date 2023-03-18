@@ -70,7 +70,7 @@ export class Snake {
         this.grow = false
 
         if (this.hasCollision(game)) {
-            w4.trace("Game over"); // @TODO
+            game.gameOver = true;
         }
     }
 
