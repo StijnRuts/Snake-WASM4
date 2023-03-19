@@ -6,15 +6,18 @@ import { Gamepad } from "../input/gamepad";
 import { Game } from "../scenes/game";
 
 export class Snake {
-    body: Array<Point> = [
-        new Point(11, 10),
-        new Point(10, 10),
-        new Point(9, 10)
-    ];
-
+    body: Array<Point>;
     direction: Direction = right;
     nextDirection: Direction = right;
     grow: boolean = false;
+
+    constructor(x: i32, y: i32) {
+        this.body = [
+            new Point(x, y),
+            new Point(x-1, y),
+            new Point(x-2, y)
+        ];
+    }
 
     setDirection(direction: Direction | null): void {
         if (direction == null) { return; }

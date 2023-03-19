@@ -1,8 +1,10 @@
 import { Scene } from "./scene";
 import { Gamepad } from "../input/gamepad";
 import { Start } from "./start";
+import { LevelIntro } from "./level_intro";
 import { Game } from "./game";
 import { GameOver } from "./game_over";
+import { GameWon } from "./game_won";
 
 export class SceneManager {
     scene: Scene = new Start;
@@ -28,8 +30,10 @@ export class SceneManager {
     }
 
     newScene(name: string): Scene {
+        if (name == "level_intro") return new LevelIntro();
         if (name == "game") return new Game();
         if (name == "game_over") return new GameOver();
+        if (name == "game_won") return new GameWon();
         return new Start;
     }
 }
